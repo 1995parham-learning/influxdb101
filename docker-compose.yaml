@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  influxdb:
+    image: influxdb:alpine
+    environment:
+      - INFLUXDB_DB=fandogh
+      - INFLUXDB_ADMIN_USER=admin
+      - INFLUXDB_ADMIN_PASSWORD=admin
+    volumes:
+      - influxdb:/var/lib/influxdb2:rw
+    ports:
+      - "8086:8086"
+
+volumes:
+  influxdb:
