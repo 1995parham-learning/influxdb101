@@ -1,7 +1,7 @@
 <h1 align="center">InfluxDB 101</h1>
 
 <p align="center">
-  <img alt="banner" src="./.github/assets/banner.jpg" height=100>
+  <img alt="banner" src="./.github/assets/banner.png" height=100>
 </p>
 
 ## Introduction
