@@ -2,34 +2,35 @@ package main
 
 import (
 	"context"
+	"log"
 	"time"
 
 	"github.com/influxdata/influxdb-client-go/v2"
 )
 
 func main() {
-	bucket := "example-bucket"
-	org := "example-org"
+	bucket := "fandogh"
+	org := "1995parham-learning"
 	token := "example-token"
-	// Store the URL of your InfluxDB instance
-	url := "http://127.0.0.1"
+	url := "http://127.0.0.1:8086"
 
-	// Create new client with default option for server url authenticate by token
 	client := influxdb2.NewClient(url, token)
 
-	// User blocking write client for writes to desired bucket
+	if _, err := client.Ping(context.Background()); err != nil {
+		log.Printf("pinging influx failed %s", err)
+	}
+
 	writeAPI := client.WriteAPIBlocking(org, bucket)
 
-	// Create point using full params constructor
 	p := influxdb2.NewPoint("stat",
 		map[string]string{"unit": "temperature"},
 		map[string]interface{}{"avg": 24.5, "max": 45},
 		time.Now(),
 	)
 
-	// Write point immediately
-	writeAPI.WritePoint(context.Background(), p)
+	if err := writeAPI.WritePoint(context.Background(), p); err != nil {
+		log.Printf("writing into influx failed %s", err)
+	}
 
-	// Ensures background processes finishes
 	client.Close()
 }
