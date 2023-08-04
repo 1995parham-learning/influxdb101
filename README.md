@@ -8,3 +8,9 @@
 
 InfluxDB is a time series database in which you can store things like measurements.
 InfluxDB uses Flux query language.
+
+To start, you need to attach into the influx container:
+
+```bash
+docker compose exec -ti influxdb bash
+```
