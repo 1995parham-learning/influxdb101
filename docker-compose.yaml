@@ -4,9 +4,12 @@ services:
   influxdb:
     image: influxdb:alpine
     environment:
-      - INFLUXDB_DB=fandogh
-      - INFLUXDB_ADMIN_USER=admin
-      - INFLUXDB_ADMIN_PASSWORD=admin
+      - INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=admin
+      - DOCKER_INFLUXDB_INIT_PASSWORD=admin
+      - DOCKER_INFLUXDB_INIT_ORG=fandogh
+      - DOCKER_INFLUXDB_INIT_BUCKET=sensor
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=secret
     volumes:
       - influxdb:/var/lib/influxdb2:rw
     ports:
