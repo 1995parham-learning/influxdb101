@@ -9,9 +9,9 @@ import (
 )
 
 func main() {
-	bucket := "fandogh"
-	org := "1995parham-learning"
-	token := "example-token"
+	bucket := "sensor"
+	org := "fandogh"
+	token := "secret"
 	url := "http://127.0.0.1:8086"
 
 	client := influxdb2.NewClient(url, token)
