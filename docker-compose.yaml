@@ -4,9 +4,9 @@ services:
   influxdb:
     image: influxdb:alpine
     environment:
-      - INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_MODE=setup
       - DOCKER_INFLUXDB_INIT_USERNAME=admin
-      - DOCKER_INFLUXDB_INIT_PASSWORD=admin
+      - DOCKER_INFLUXDB_INIT_PASSWORD=Admin123!@#
       - DOCKER_INFLUXDB_INIT_ORG=fandogh
       - DOCKER_INFLUXDB_INIT_BUCKET=sensor
       - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=secret
